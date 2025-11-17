@@ -1,7 +1,6 @@
 buildroot/buildroot-*/output/
 buildroot/buildroot-*/dl/
 buildroot/*.tar.gz
-buildroot/
 
 # Models
 *.gguf
