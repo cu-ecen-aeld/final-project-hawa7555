@@ -1,0 +1,2 @@
+dtparam=audio=on
+max_usb_current=1

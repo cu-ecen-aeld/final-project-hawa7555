@@ -1,0 +1,5 @@
+config BR2_PACKAGE_AITUTOR_TEST
+	bool "aitutor-test"
+	select BR2_PACKAGE_LED_DRIVER
+	help
+	  Test utilities for AI Tutor components

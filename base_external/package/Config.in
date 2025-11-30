@@ -1,0 +1,12 @@
+menu "AI Tutor packages"
+	source "$BR2_EXTERNAL_PIASSISTANT_PATH/package/led-driver/Config.in"
+	source "$BR2_EXTERNAL_PIASSISTANT_PATH/package/aitutor/Config.in"
+	source "$BR2_EXTERNAL_PIASSISTANT_PATH/package/aitutor-test/Config.in"
+endmenu
+
+menu "AI Models and Tools"
+	source "$BR2_EXTERNAL_PIASSISTANT_PATH/package/llama-cpp/Config.in"
+	source "$BR2_EXTERNAL_PIASSISTANT_PATH/package/whisper-cpp/Config.in"
+	source "$BR2_EXTERNAL_PIASSISTANT_PATH/package/piper/Config.in"
+	source "$BR2_EXTERNAL_PIASSISTANT_PATH/package/ai-models/Config.in"
+endmenu

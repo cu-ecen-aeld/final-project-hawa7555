@@ -1,0 +1,48 @@
+#!/bin/sh
+
+case "$1" in
+    start)
+    	echo performance > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+	echo performance > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+	echo performance > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+	echo performance > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+        echo "Starting AI Tutor..."
+        
+        # Load LED driver
+        /usr/bin/led_load.sh
+        
+        # Start llama-server in background
+        /usr/bin/start_llama.sh
+        
+        # Wait for server to be ready
+        sleep 2
+         
+         /usr/bin/aitutor > /dev/tty1 2>&1 &
+        
+        echo "AI Tutor started"
+        ;;
+    stop)
+        echo "Stopping AI Tutor..."
+       
+        killall aitutor
+        
+        # Unload LED driver
+        /usr/bin/led_unload.sh
+        
+        # Stop llama-server
+        killall llama-server 2>/dev/null
+        
+        echo "AI Tutor stopped"
+        ;;
+    restart)
+        $0 stop
+        sleep 1
+        $0 start
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+        ;;
+esac
+
+exit 0

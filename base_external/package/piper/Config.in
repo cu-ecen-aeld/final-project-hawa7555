@@ -1,0 +1,5 @@
+config BR2_PACKAGE_PIPER
+	bool "piper"
+	help
+	  Fast text-to-speech system for ARM64
+	  https://github.com/rhasspy/piper

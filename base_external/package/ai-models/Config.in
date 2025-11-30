@@ -1,0 +1,7 @@
+config BR2_PACKAGE_AI_MODELS
+	bool "ai-models"
+	help
+	  AI models downloaded from HuggingFace
+	  - TinyLlama 1.1B
+	  - Whisper tiny
+	  - Piper voice

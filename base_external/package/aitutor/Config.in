@@ -1,0 +1,5 @@
+config BR2_PACKAGE_AITUTOR
+	bool "aitutor"
+	select BR2_PACKAGE_LED_DRIVER
+	help
+	  AI-powered voice tutor application

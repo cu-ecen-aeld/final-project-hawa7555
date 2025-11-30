@@ -1,0 +1,4 @@
+config BR2_PACKAGE_LLAMA_CPP
+	bool "llama-cpp"
+	help
+	  LLM inference

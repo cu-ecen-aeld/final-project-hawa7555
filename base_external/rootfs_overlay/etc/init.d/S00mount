@@ -1,0 +1,27 @@
+#!/bin/sh
+
+case "$1" in
+  start)
+    echo "Mounting filesystems..."
+    
+    # Remount root as read-write FIRST
+    mount -o remount,rw /
+    
+    # Mount proc, sys, and devtmpfs
+    mount -t proc proc /proc 2>/dev/null || true
+    mount -t sysfs sysfs /sys 2>/dev/null || true
+    mount -t devtmpfs devtmpfs /dev 2>/dev/null || true
+    
+    # Create /tmp with proper permissions
+    mkdir -p /tmp
+    chmod 1777 /tmp
+    ;;
+  stop)
+    # Nothing to do
+    ;;
+  *)
+    echo "Usage: $0 {start|stop}"
+    exit 1
+esac
+
+exit 0

@@ -1,0 +1,5 @@
+config BR2_PACKAGE_WHISPER_CPP
+	bool "whisper-cpp"
+	help
+	  Whisper speech-to-text inference for ARM64
+	  https://github.com/ggerganov/whisper.cpp

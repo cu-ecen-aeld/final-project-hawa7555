@@ -1,0 +1,18 @@
+# /etc/inittab
+
+# Startup - runs all S??* scripts
+::sysinit:/etc/init.d/rcS
+
+# Wait for background services to start
+::wait:/bin/sleep 10
+
+# Auto-login shell on tty1
+tty1::respawn:-/bin/sh
+
+# Ctrl+Alt+Del
+::ctrlaltdel:/sbin/reboot
+
+# Shutdown sequence  
+::shutdown:/etc/init.d/rcK
+::shutdown:/sbin/swapoff -a
+::shutdown:/bin/umount -a -r

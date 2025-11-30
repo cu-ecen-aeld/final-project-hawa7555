@@ -1,0 +1,24 @@
+#!/bin/sh
+
+case "$1" in
+    start)
+        echo "Initializing bcm2835 audio..."
+        
+        # Reload bcm2835 audio module with enable_headphones
+        if lsmod | grep -q snd_bcm2835; then
+            rmmod snd_bcm2835 2>/dev/null || true
+        fi
+        modprobe snd_bcm2835 enable_headphones=1
+        
+        echo "Audio initialized"
+        ;;
+    stop)
+        # Nothing to do
+        ;;
+    *)
+        echo "Usage: $0 {start|stop}"
+        exit 1
+        ;;
+esac
+
+exit 0

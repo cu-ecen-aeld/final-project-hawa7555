@@ -1,0 +1,4 @@
+config BR2_PACKAGE_LED_DRIVER
+	bool "led-driver"
+	help
+	  Kernel module for dual GPIO control
